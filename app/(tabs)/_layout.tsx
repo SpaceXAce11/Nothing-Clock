@@ -8,10 +8,13 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         headerStyle: {
-          backgroundColor: "#0a0a0a"
+          backgroundColor: "#0a0a0a",
+          elevation: 0,
+          shadowOpacity: 0
         },
         tabBarStyle: {
-          backgroundColor: "#0a0a0a"
+          backgroundColor: "#0a0a0a",
+          paddingHorizontal: 15
         },
         tabBarActiveTintColor: "red",
         tabBarInactiveTintColor: "#fff",
@@ -30,7 +33,7 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen 
-        name="index" 
+        name="index"
         options={{
           headerTitle: (props: any) => <Text {...props} style={styles.text}>Clock</Text>,
           tabBarLabel: "Clock"
@@ -66,5 +69,8 @@ const styles = StyleSheet.create({
     fontFamily: "Lettera Mono",
     color: "#fff",
     textTransform: "uppercase"
+  },
+  mainContainer: {
+    backgroundColor: "#0a0a0a"
   }
 });

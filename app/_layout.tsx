@@ -5,7 +5,9 @@ import { StyleSheet, Text } from "react-native";
 
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
-    'Lettera Mono': require("../assets/fonts/Lettera Mono LL.ttf")
+    'Lettera Mono': require("../assets/fonts/Lettera Mono LL.ttf"),
+    'N Type': require("../assets/fonts/NType82Mono-Regular.otf"),
+    'N Dot': require("../assets/fonts/Ndot-55.otf"),
   });
 
   if(!fontsLoaded) {

@@ -1,0 +1,50 @@
+import { Entypo } from '@expo/vector-icons';
+import React from 'react';
+import { StyleSheet, View, Text } from 'react-native'; 
+
+interface TimeZoneCellProps {
+    timeZone: string;
+    name: string;
+}
+
+const TimeZoneCell: React.FC<TimeZoneCellProps> = ({ name, timeZone = "null" }) => {
+    return (
+        <View style={styles.mainContainer}>
+            <View style={styles.header}>
+                <Entypo name="dot-single" size={25} color="red" />
+                <Text style={[styles.text, styles.headerText]}>{name}</Text>
+            </View>
+            <Text style={[styles.text, styles.clockText]}>12:20</Text>
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    mainContainer: {
+        justifyContent: "space-between",
+        flex: 1,
+        aspectRatio: 1,
+        borderRadius: 10,
+        backgroundColor: "#1d1e20",
+        margin: 10,
+        padding: 20
+    },
+    header: {   
+        flexDirection: "row",
+        alignItems: "center"
+    },
+    headerText: {
+        fontFamily: "Lettera Mono",
+        textTransform: "uppercase",
+    },
+    clockText: {
+        fontFamily: "N Dot",
+        fontSize: 30,
+        letterSpacing: 3
+    },
+    text: {
+        color: "#fff"
+    }
+});
+
+export default TimeZoneCell;
