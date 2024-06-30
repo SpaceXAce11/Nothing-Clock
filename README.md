@@ -1,6 +1,3 @@
-# Nothing-Clock
-A clock app for Nothing phone(1) and Nothing phone(2) 
-
 # Nothing Clock
 
 ![Nothing Clock - Open Source Project](https://github.com/SushiiReboot/Nothing-Clock/assets/101837968/7416a6fd-f542-42d0-9ce2-3b95afd0e787)
