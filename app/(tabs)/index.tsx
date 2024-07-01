@@ -1,7 +1,7 @@
 import TimeZoneCell from "@/components/TimeZoneCell";
 import MapRenderer from "@/components/map-render/MapRenderer";
 import { Ionicons } from "@expo/vector-icons";
-import { FlatList, Pressable, StyleSheet, Text, View } from "react-native";
+import { FlatList, Pressable, StyleSheet, Text, View, ScrollView } from "react-native";
 
 const data_test = [
   {
@@ -38,34 +38,48 @@ const data_test = [
   }
 ]
 
+const date = new Date();
+const month = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const year = date.getFullYear().toString().slice(-2);
+const currentDateString = `${day[date.getDay()]}, ${month[date.getMonth()]} ${year}`
 
 export default function ClockScreen() {
   return (
     <View style={styles.mainContainer}>
       <View style={styles.addMoreBtnContainer}>
         <Pressable style={styles.addMoreBtn}>
-          <Text style={[styles.letteraMonoTxt, styles.addMoreBtnText]}>Add More</Text>
+            <Text style={[styles.letteraMonoTxt, styles.addMoreBtnText]}>Add More</Text>
         </Pressable>
       </View>
-      <View style={styles.mapContainer}>
-        <MapRenderer/>
-      </View>
-      <View style={styles.belowMapContainer}>
-        <Pressable style={[styles.clockDataPressable, {backgroundColor: "#1d1e20"}]}>
-          <Text style={[styles.letteraMonoTxt, styles.clockDataPressableTxt, {color: "#fff"}]}>Sun, Jul 21</Text>
-        </Pressable>
-        <Pressable style={[styles.clockDataPressable, {backgroundColor: "#fff", flexDirection: "row", gap: 15}]}>
-          <Text style={[styles.letteraMonoTxt, styles.clockDataPressableTxt]}>1 Alarm</Text>
-          <Ionicons name="chevron-forward-outline" size={15} color="black" />
-        </Pressable>
-      </View>
-      <View style={styles.timeZoneContainer}>
-        <FlatList
-          data={data_test}
-          renderItem={({ item }) => <TimeZoneCell name={item.name} timeZone={item.timeZone}/>}
-          numColumns={2}
-        ></FlatList>
-      </View>
+      <ScrollView 
+        style={styles.mainContainer} 
+        contentContainerStyle={{
+          marginTop: 10,
+          paddingBottom: 100,
+        }}
+      >
+        <View style={styles.mapContainer}>
+          <MapRenderer/>
+        </View>
+        <View style={styles.belowMapContainer}>
+          <Pressable style={[styles.clockDataPressable, {backgroundColor: "#1d1e20"}]}>
+            <Text style={[styles.letteraMonoTxt, styles.clockDataPressableTxt, {color: "#fff"}]}>{currentDateString}</Text>
+          </Pressable>
+          <Pressable style={[styles.clockDataPressable, {backgroundColor: "#fff", flexDirection: "row", gap: 15}]}>
+            <Text style={[styles.letteraMonoTxt, styles.clockDataPressableTxt]}>1 Alarm</Text>
+            <Ionicons name="chevron-forward-outline" size={15} color="black" />
+          </Pressable>
+        </View>
+        <View style={styles.timeZoneContainer}>
+          <FlatList
+            data={data_test}
+            renderItem={({ item }) => <TimeZoneCell name={item.name} timeZone={item.timeZone}/>}
+            numColumns={2}
+            scrollEnabled={false}
+          ></FlatList>
+        </View>
+      </ScrollView>
     </View>
   );
 }
@@ -78,6 +92,7 @@ const styles = StyleSheet.create({
   },
   mapContainer: {
     width: "100%",
+    height: 300,
     flex: 0.5,
     paddingVertical: 10
   },

@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
     headerText: {
         fontFamily: "Lettera Mono",
         textTransform: "uppercase",
+        flexWrap: "wrap",
     },
     clockText: {
         fontFamily: "N Dot",
@@ -43,7 +44,8 @@ const styles = StyleSheet.create({
         letterSpacing: 2.5
     },
     text: {
-        color: "#fff"
+        color: "#fff",
+        marginRight: 30
     }
 });
 
