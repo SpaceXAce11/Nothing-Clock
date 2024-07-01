@@ -11,10 +11,10 @@ const TimeZoneCell: React.FC<TimeZoneCellProps> = ({ name, timeZone = "null" }) 
     return (
         <View style={styles.mainContainer}>
             <View style={styles.header}>
-                <Entypo name="dot-single" size={25} color="red" />
+                <Entypo name="dot-single" size={30} color="red" />
                 <Text style={[styles.text, styles.headerText]}>{name}</Text>
             </View>
-            <Text style={[styles.text, styles.clockText]}>12:20</Text>
+            <Text style={[styles.text, styles.clockText]}>{timeZone}</Text>
         </View>
     );
 };
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     clockText: {
         fontFamily: "N Dot",
         fontSize: 30,
-        letterSpacing: 3
+        letterSpacing: 2.5
     },
     text: {
         color: "#fff"

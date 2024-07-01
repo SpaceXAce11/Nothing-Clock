@@ -14,7 +14,9 @@ export default function TabLayout() {
         },
         tabBarStyle: {
           backgroundColor: "#0a0a0a",
-          paddingHorizontal: 15
+          paddingHorizontal: 15,
+          height: 50,
+          borderTopWidth: 0
         },
         tabBarActiveTintColor: "red",
         tabBarInactiveTintColor: "#fff",
@@ -22,8 +24,8 @@ export default function TabLayout() {
           display: "none"
         },
         tabBarLabelStyle: {
-          fontSize: 12,
-          marginBottom: 14,
+          fontSize: 11,
+          marginBottom: 23,
           fontFamily: "Lettera Mono",
           textTransform: "uppercase"
         },
