@@ -2,11 +2,11 @@ import React from 'react';
 import DottedMap from 'dotted-map/without-countries';
 import ComputedDottedMap from "./data/map_dotted.json"
 import GeoData from "./data/countries.geo.json"
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Animated, StyleProp, ViewStyle } from 'react-native';
 import { SvgXml } from 'react-native-svg';
 
 interface MapRendererProps {
-    // Define props here
+    style: StyleProp<ViewStyle>
 }
 
 function findCoordinatesByCountry(countryName: string, geoJson: any): number[] | null {
@@ -51,9 +51,9 @@ const MapRenderer: React.FC<MapRendererProps> = (props) => { //52X29 map
     });
 
     return (
-        <View style={styles.mainContainer}>
+        <Animated.View style={[styles.mainContainer, props.style]}>
             <SvgXml xml={svgMap} />
-        </View>
+        </Animated.View>
     );
 };
 

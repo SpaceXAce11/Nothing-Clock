@@ -1,7 +1,9 @@
 import TimeZoneCell from "@/components/TimeZoneCell";
 import MapRenderer from "@/components/map-render/MapRenderer";
+import { transform } from "@babel/core";
 import { Ionicons } from "@expo/vector-icons";
-import { FlatList, Pressable, StyleSheet, Text, View, ScrollView } from "react-native";
+import { useRef } from "react";
+import { FlatList, Pressable, StyleSheet, Text, View, ScrollView, Animated } from "react-native";
 
 const data_test = [
   {
@@ -44,7 +46,17 @@ const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const year = date.getFullYear().toString().slice(-2);
 const currentDateString = `${day[date.getDay()]}, ${month[date.getMonth()]} ${year}`
 
+
 export default function ClockScreen() {
+  let mapScale = 1;
+  const scrollY = useRef(new Animated.Value(0)).current;
+
+  const scale = scrollY.interpolate({
+    inputRange: [0, 300],  // The value 300 is just right
+    outputRange: [1, 0], // Scale from 1 to 0
+    extrapolate: 'clamp',
+  });
+
   return (
     <View style={styles.mainContainer}>
       <View style={styles.addMoreBtnContainer}>
@@ -58,9 +70,16 @@ export default function ClockScreen() {
           marginTop: 10,
           paddingBottom: 100,
         }}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+          {
+            useNativeDriver: false,
+            listener: event => {},
+          }
+        )}
       >
         <View style={styles.mapContainer}>
-          <MapRenderer/>
+          <MapRenderer style={{transform: [{ scale: scale }]}}/>
         </View>
         <View style={styles.belowMapContainer}>
           <Pressable style={[styles.clockDataPressable, {backgroundColor: "#1d1e20"}]}>
