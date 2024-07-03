@@ -15,10 +15,11 @@ Nothing Clock is a sleek, modern native clock application specifically designed 
 - **Widgets Support:** Home screen widgets for quick access to time and alarms.
 - **Smooth Animations:** Enjoy fluid and visually appealing animations throughout the app.
 
-## Installation
+## How to contribute to the project
 
 To get started with Nothing Clock, follow these steps:
 
+1. **Fork the repository:**
 1. **Clone the repository:**
     ```sh
     git clone https://github.com/yourusername/nothing-clock.git
