@@ -17,21 +17,22 @@ Nothing Clock is a sleek, modern native clock application specifically designed 
 
 ## How to contribute to the project
 
-To get started with Nothing Clock, follow these steps:
+When contributing to this repository, please first discuss the change you wish to make via issue or email before making a change.
 
 1. **Fork the repository:**
-1. **Clone the repository:**
-    ```sh
-    git clone https://github.com/yourusername/nothing-clock.git
-    ```
+In the top-right corner of the page, click Fork. Then create a new branch (`git checkout -b feature/YourFeature`).
 2. **Navigate to the project directory:**
     ```sh
     cd nothing-clock
     ```
-3. **Install dependencies:**
+3. **Install dependencies listed in package-lock.json by running:**
     ```sh
-    npm install
+    npm i
     ```
+4. **Install Expo:**
+    ```sh
+    npm install expo
+    ```    
 4. **Start the Expo development server:**
     ```sh
     npx expo start
@@ -39,20 +40,14 @@ To get started with Nothing Clock, follow these steps:
 5. **Run on your device:**
     - Scan the QR code with your Expo Go app (available on the App Store and Google Play) to run the app on your mobile device.
     - Alternatively, use an emulator/simulator on your computer.
+6. **Make your changes and commit them:**
+    (`git commit -m 'Add some feature'`).
+7. **Push to the branch:** (`git push origin feature/YourFeature`).
+5. **Open a Pull Request.**
 
-## Usage
+## Usage (still on Development)
 
 Upon launching the app, you'll be greeted with the main clock interface. Navigate through the tabs to access various features such as Alarms, World Clock, Stopwatch, and Timer. Customize your clock's appearance and settings through the preferences menu.
-
-## Contributing
-
-We welcome contributions from the community! To contribute to Nothing Clock, please follow these steps:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature/YourFeature`).
-3. Make your changes and commit them (`git commit -m 'Add some feature'`).
-4. Push to the branch (`git push origin feature/YourFeature`).
-5. Open a Pull Request.
 
 ## License
 
